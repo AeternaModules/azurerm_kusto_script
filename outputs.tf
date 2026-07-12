@@ -1,3 +1,7 @@
+output "kusto_scripts_id" {
+  description = "Map of id values across all kusto_scripts, keyed the same as var.kusto_scripts"
+  value       = { for k, v in azurerm_kusto_script.kusto_scripts : k => v.id }
+}
 output "kusto_scripts_continue_on_errors_enabled" {
   description = "Map of continue_on_errors_enabled values across all kusto_scripts, keyed the same as var.kusto_scripts"
   value       = { for k, v in azurerm_kusto_script.kusto_scripts : k => v.continue_on_errors_enabled }
